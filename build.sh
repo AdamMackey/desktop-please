@@ -26,7 +26,7 @@ fi
 build_bundle() {
   rm -rf build
   mkdir -p "$BUNDLE/Contents/MacOS"
-  swiftc -O -framework AppKit -framework Carbon -framework ServiceManagement \
+  swiftc -O -framework AppKit -framework ServiceManagement \
     -o "$BUNDLE/Contents/MacOS/$EXE" "$EXE.swift"
   cat > "$BUNDLE/Contents/Info.plist" <<PLIST
 <?xml version="1.0" encoding="UTF-8"?>
