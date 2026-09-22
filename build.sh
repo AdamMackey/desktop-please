@@ -25,7 +25,7 @@ fi
 
 build_bundle() {
   rm -rf build
-  mkdir -p "$BUNDLE/Contents/MacOS"
+  mkdir -p "$BUNDLE/Contents/MacOS" "$BUNDLE/Contents/Resources"
   swiftc -O -framework AppKit -framework ServiceManagement \
     -o "$BUNDLE/Contents/MacOS/$EXE" "$EXE.swift"
   cat > "$BUNDLE/Contents/Info.plist" <<PLIST
@@ -37,6 +37,7 @@ build_bundle() {
 	<key>CFBundleIdentifier</key><string>$BUNDLE_ID</string>
 	<key>CFBundleName</key><string>$NAME</string>
 	<key>CFBundleDisplayName</key><string>$NAME</string>
+	<key>CFBundleIconFile</key><string>AppIcon</string>
 	<key>CFBundlePackageType</key><string>APPL</string>
 	<key>CFBundleShortVersionString</key><string>$VERSION</string>
 	<key>CFBundleVersion</key><string>$VERSION</string>
@@ -46,6 +47,9 @@ build_bundle() {
 </dict>
 </plist>
 PLIST
+
+  # Redraw the artwork with: swift tools/make-icon.swift
+  cp AppIcon.icns "$BUNDLE/Contents/Resources/AppIcon.icns"
 }
 
 # Asks a running copy to quit (SIGTERM), so it hands the system shortcuts back
