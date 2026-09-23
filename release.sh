@@ -27,7 +27,11 @@ codesign --force --options runtime --timestamp --sign "$IDENTITY" "build/$NAME.a
 mkdir -p dist
 ZIP="dist/${NAME// /-}-$VERSION.zip"
 ditto -c -k --keepParent "build/$NAME.app" "$ZIP"
-if ! xcrun notarytool submit "$ZIP" --keychain-profile "$PROFILE" --wait | tee /dev/stderr | grep -q "status: Accepted"; then
+# Keep Apple's whole answer, then look for "Accepted". Piping straight into
+# grep -q reported an accepted submission as failed: grep quits at its first
+# match, and under pipefail the broken pipe left behind counts as an error.
+RESULT=$(xcrun notarytool submit "$ZIP" --keychain-profile "$PROFILE" --wait 2>&1 | tee /dev/stderr) || true
+if ! grep -q "status: Accepted" <<<"$RESULT"; then
   echo "Notarization failed. For details: xcrun notarytool log <submission id> --keychain-profile $PROFILE" >&2
   exit 1
 fi
