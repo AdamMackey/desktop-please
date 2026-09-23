@@ -10,20 +10,21 @@ your desktop and shows it.
 
 ## Install
 
-A notarized download is coming to [Releases](../../releases). For now, build
-it (you'll need Xcode or the Command Line Tools):
-
-    git clone https://github.com/AdamMackey/desktop-please.git
-    cd desktop-please
-    ./build.sh
-
-That installs **Desktop Please** to Applications and opens it. It has no window
-or menu bar icon: it runs in the background and opens itself at login.
+Download the zip from [Releases](../../releases), unzip it, drag **Desktop
+Please** to Applications and open it. It has no window or menu bar icon: it runs
+in the background and opens itself at login.
 
 macOS then asks for **Accessibility** permission (System Settings → Privacy &
 Security → Accessibility). That's needed to catch your shortcut and to leave
 full-screen apps; see [How it works](#how-it-works). It starts working as soon
 as you allow it. Until then, Show Desktop simply works the way macOS always has.
+
+Or build it yourself (you'll need Xcode or the Command Line Tools). `build.sh`
+installs it to Applications and opens it:
+
+    git clone https://github.com/AdamMackey/desktop-please.git
+    cd desktop-please
+    ./build.sh
 
 ## Use
 
