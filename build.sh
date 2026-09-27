@@ -11,7 +11,7 @@ cd "$(dirname "$0")"
 NAME="Desktop Please"                   # what shows in Finder, Login Items and Accessibility
 EXE="DesktopPlease"                     # executable and source file name
 BUNDLE_ID="com.adammackey.desktopplease"
-VERSION="1.0"
+VERSION="1.1"
 BUNDLE="build/$NAME.app"
 LSREGISTER=/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister
 
