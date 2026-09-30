@@ -94,6 +94,13 @@ The full path matters: in zsh, a bare `log` is a builtin.
 Desktop Please is free. If it saves you a few swipes a day, you can
 [buy me a coffee](https://buymeacoffee.com/adammackey).
 
+## More from MackEye Apps
+
+Desktop Please is one of the small apps from [MackEye
+Apps](https://mackeye.app): Mac utilities like Hold Please and Simple Battery,
+and tools for Claude like Meterous and Pulseous. See them all at
+[mackeye.app](https://mackeye.app).
+
 ## License
 
 MIT. See [LICENSE](LICENSE).
